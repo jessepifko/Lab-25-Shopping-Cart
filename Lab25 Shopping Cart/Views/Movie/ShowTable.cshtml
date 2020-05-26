@@ -1,0 +1,30 @@
+﻿@model List<RentMovie>
+@{
+    ViewData["Title"] = "ShowTable";
+}
+
+<h1>ShowTable</h1>
+
+<table class="table table-dark table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Year</th>
+        <th>RunTime</th>
+        <th>Rental Cost</th>
+    </tr>
+    @foreach (RentMovie Movies in Model)
+    {
+        <tr>
+            <td>@Movies.ID</td>
+            <td>@Movies.Title</td>
+            <td>@Movies.Genre</td>
+            <td>@Movies.Year</td>
+            <td>@Movies.RunTime</td>
+            <td>@Movies.RentalCost</td>
+            <td><a href="../Movie/AddToCart?id=@Movies.ID&title=@Movies.Title&genre=@Movies.Genre&year=@Movies.Year&runtime=@Movies.RunTime&rentalcost=@Movies.RentalCost">Rent</a></td>
+        </tr>
+
+    }
+</table>

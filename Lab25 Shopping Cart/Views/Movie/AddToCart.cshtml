@@ -1,0 +1,33 @@
+﻿@model List<RentMovie>
+@{
+    ViewData["Title"] = "AddToCart";
+}
+
+<h1>AddToCart</h1>
+
+@if (ViewData != null)
+{
+<p>@ViewData["Receipt View"]</p>
+
+}
+
+<table>
+    @{
+        double total = 0.00;  
+        @foreach (RentMovie movie in Model)
+        {
+    <tr>
+        <td>@movie.Title</td>
+        <td>@movie.RentalCost</td>
+    </tr>
+            total = total + movie.RentalCost;
+        }
+    <tr>
+        <td>Total cost:</td>
+        <td>@total</td>
+    </tr>
+        }
+</table>
+<form action="ClearCart">
+    <button>Clear Cart</button>
+</form>

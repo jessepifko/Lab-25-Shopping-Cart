@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Receipt";
+}
+
+<h1>Receipt</h1>
+<table>
+    @{
+        double total = 0.00;
+        @foreach (RentMovie movie in Model)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.RentalCost</td>
+            </tr>
+            total = total + movie.RentalCost;
+        }
+        <tr>
+            <td>Total cost:</td>
+            <td>@total</td>
+        </tr>
+    }
+</table>
+
